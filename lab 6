@@ -1,0 +1,89 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int maximum(int a, int b, int c) {
+	if (a > b)
+	{
+		if (a > c)
+			return a;
+		else return c;
+	}
+	else {
+		if (b > c)
+			return b;
+		else return c;
+	}
+}
+
+
+
+
+int lim(int a, int b, double* n) { // проверка лимитов
+	while (*n < a || *n > b) // если не совпадает повторный ввод
+	{
+		cout << "Число выходит за указанные лимиты, введите повторно: ";
+		cin >> *n;
+	}
+
+	if (floor(*n) == *n) { // проверка числа -целое или нет, если не целое //выводим округленное значение
+
+		return *n;
+	}
+	else {
+		return (int(*n));
+	}
+}
+
+
+void sort(int* arr, int n) { // сортировка вставкой, простейший алгоритм
+	for (int i = 1; i < n; i++) {
+		for (int j = i; j > 0 && arr[j - 1] > arr[j]; j--) {
+			swap(arr[j], arr[j - 1]);
+		}
+	}
+}
+
+
+
+
+
+int main() {
+	setlocale(LC_ALL, "russian");
+
+	cout << "Задание 1: " << endl;
+	int a, b, c;
+	cout << "Введите a b c: ";
+	cin >> a >> b >> c;
+	int res = maximum(a, b, c);
+	cout << res << endl;
+
+	/////////////////////
+	cout << "Задание 2: " << endl;
+
+	double t;
+	cout << "Ввод";
+	cin >> t;
+	cout << lim(-10, 10, &t) << endl;
+
+
+	/////////////////////////
+	cout << "Задание 3: " << endl;
+
+	int n;
+	cout << "Введите размер: ";
+	cin >> n;
+	int* arr = new int[n];
+	cout << "Заполните массив: ";
+	for (int i = 0; i < n; i++)
+		cin >> arr[i];
+	sort(arr, n);
+
+	cout << "Отсортированный массив: " << endl;
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+
+
+
+	return 0;
+}
