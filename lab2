@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+
+int main() {
+	setlocale(LC_ALL, "russian");
+	
+	cout << "Первое задание : " << endl;
+
+
+	double a, b, c;
+	cout << "Введите a b c: ";
+	cin >> a >> b >> c;
+	if (sqrt(b * b - 4 * a * c) >= 0) {
+		double x1 = (-b + sqrt(b * b - 4 * a * c)) / (2 * a);
+		double x2 = (-b - sqrt(b * b - 4 * a * c)) / (2 * a);
+		if (x1 == x2)
+		{
+			cout << "Имеется единственный корень:  " << x1 << endl;
+		}
+		else {
+			cout << "Превый корень:  " << x1 << endl;
+			cout << "Второй корень:  " << x2 << endl;
+		}
+	}
+	else if (sqrt(b * b - 4 * a * c) < 0) {
+		cout << "Вещественных корней нет" << endl;
+	}
+
+	/////////////////////////
+	cout << "Задание два: " << endl;
+
+	int l, r;
+	cout << "Введите границы дипапзона: " << endl;
+	cin >> l >> r;
+
+	int rnd = rand() % r;
+	while (rnd<l)
+		rnd = rand() % r;
+	cout << "Рандомный результат: " << r << endl;
+
+	////////////////////////
+	cout << "Задание три: " << endl;
+
+	int array[10] = { 5,4,1,-10,100,-57,45,31,2,0 }; // массив
+
+	//cортировка пузырьком   
+	for (int i = 0; i < 9; i++) {
+		for (int j = 0; j < 9 - i; j++) {
+			if (array[j] > array[j + 1]) {
+				swap(array[j], array[j + 1]);
+			}
+		}
+	}
+	//вывод результата 
+	cout << "Результат сортировки: " << endl;
+	for (int i = 0; i < 10; i++)
+		cout << array[i] << " ";
+
+
+
+	return 0;
+}
