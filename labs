@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+	setlocale(LC_ALL, "russian");
+
+	cout << "Задание 1: " << endl;
+	int arr[10] = { 1,5,4,-2,5,-1,-10,5,15,-100 };//массив
+
+	for (int i = 0; i < 10; i++)//вывод
+	{
+		if (arr[i] < 0)
+			arr[i] = 0;
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+	//////////////////////////
+	cout << "Задание 2: " << endl;
+
+	char letter;
+
+	cout << "Ввод: ";
+	cin >> letter;
+	while (letter != '-' && letter != '+' && letter != '=' && letter != '*')
+	{
+		cout << "Введен не символ:  ";
+		cin >> letter;
+	}
+	string s = "hello+-world";
+
+	bool check = true;
+	for (int i = 0; i < s.length(); i++) {
+
+		if (s[i] == letter && check)
+		{
+			cout << i + 1 << endl;
+			check = false;
+		}
+	}
+	if (check) cout << "Символа в строке нет" << endl;
+
+	////////////////
+	cout << "Задание 3: " << endl;
+
+		int matrix[3][3];
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++)
+				cin >> matrix[i][j];
+		}
+		int result = matrix[0][0] * matrix[1][1] * matrix[2][2] + matrix[2][0] * matrix[0][1] * matrix[1][2] + matrix[1][0] * matrix[2][1] * matrix[0][2] - matrix[2][0] * matrix[1][1] * matrix[0][2] - matrix[0][0] * matrix[2][1] * matrix[1][2] - matrix[1][0] * matrix[0][1] * matrix[2][2];
+
+		cout << "Определитель матрицы: " << result;
+
+
+	return 0;
+}
