@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+double harmonic(double a, double b) {
+    a = 1 / a; 
+    b = 1 / b;
+    double result = 2 / (a + b); 
+    return result;
+}
+
+
+
+void count(double* a, double* b, double* c) {
+    if (*a < *b)
+        swap(*a, *b);
+    if (*a < *c)
+        swap(*a, *c);
+    if (*b < *c)
+        swap(*b, *c);
+}
+
+
+
+int main() {
+    setlocale(LC_ALL, "russian");
+    cout << "Задание 1: " << endl;
+    double a, b;
+    cout << "Введите a b: ";
+    cin >> a >> b;
+    int res = harmonic(a, b);
+    cout << res << endl;
+
+    ///////////////
+    cout << "Задание 2: " << endl;
+
+    double t, n, d;
+    cout << "Заполните числа: ";
+    cin >> t >> n >> d;
+    count(&t, &n, &d);
+
+    cout << "Числа после перестановки): " << t << " " << n << " " << d << endl;
+
+
+
+    return 0;
+}
+
